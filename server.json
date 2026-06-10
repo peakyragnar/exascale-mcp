@@ -2,8 +2,28 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "build.exascale/osint",
   "description": "Agent-ready US power data: capacity, generation, capacity factor (EIA), cited to source.",
-  "version": "1.1.0",
+  "version": "1.1.1",
+  "websiteUrl": "https://exascale.build",
+  "icons": [
+    {
+      "src": "https://exascale.build/icon.png",
+      "sizes": [
+        "1024x1024"
+      ],
+      "mimeType": "image/png"
+    },
+    {
+      "src": "https://exascale.build/icon.svg",
+      "sizes": [
+        "any"
+      ],
+      "mimeType": "image/svg+xml"
+    }
+  ],
   "remotes": [
-    { "type": "streamable-http", "url": "https://api.exascale.build/mcp" }
+    {
+      "type": "streamable-http",
+      "url": "https://api.exascale.build/mcp"
+    }
   ]
 }

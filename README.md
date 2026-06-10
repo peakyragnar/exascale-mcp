@@ -1,13 +1,13 @@
 # exascale.build — agent-ready, source-cited US power data
 
-**MCP endpoint:** `https://api.exascale.build/mcp` (streamable HTTP, no auth) · **Website:** [exascale.build](https://exascale.build) · **Docs:** [exascale.build/docs](https://exascale.build/docs)
+**MCP endpoint:** `https://api.exascale.build/mcp` (streamable HTTP, no auth) · **Discovery:** [`/.well-known/agent.json`](https://api.exascale.build/.well-known/agent.json) · **Website:** [exascale.build](https://exascale.build) · **Docs:** [exascale.build/docs](https://exascale.build/docs)
 
 An **agent-first** data layer for the US power system. Query operating, planned, and retired generation **capacity** (EIA-860M), net **generation** (EIA-923), and **capacity factor** — over **MCP or REST**. Every value is returned **cited to its source**, and any number resolves to its **raw source cell with a matching SHA-256**, so an agent can *verify* what it reports instead of trusting it.
 
 - 🔒 **Read-only**, no authentication, no personal data collected
 - ✅ **Verifiable** — `source` + `as_of` + a hash-checked evidence handle on every value
 - 🧭 **Agent-first** — discover → describe → query → verify; tools declare what they *won't* answer
-- 🆓 **Free & open** today (fair-use rate limits); industrial & logistics data rolling out
+- 🆓 **Free & open** today (fair-use rate limits); AI infra, Space & Robotics packs rolling out
 
 ## Connect
 

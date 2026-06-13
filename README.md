@@ -34,9 +34,11 @@ curl -X POST https://api.exascale.build/v1/power/capacity/query \
 |---|---|---|
 | `power.capacity` | Operating / planned / retired generator capacity (MW) | EIA-860M |
 | `power.generation` | Net generation (MWh) by fuel, state, balancing authority | EIA-923 |
+| `power.demand` | Hourly electricity demand (MW) by balancing authority | EIA-930 |
+| `power.retail_sales` | Annual retail sales, revenue, customers by utility / state / sector | EIA-861 |
 | `power.capacity_factor` | How hard a fleet runs — generation ÷ (capacity × hours) | EIA |
 
-8 read-only tools: `list_capabilities`, `describe_*` / `query_*` per data point, and `get_source_evidence` (re-opens the raw file, re-hashes it, returns the literal source cell). Full reference at **[exascale.build/docs](https://exascale.build/docs)**.
+12 read-only tools: `list_capabilities`, `describe_*` / `query_*` per data point, and `get_source_evidence` (re-opens the raw file, re-hashes it, returns the literal source cell). Full reference at **[exascale.build/docs](https://exascale.build/docs)**.
 
 ## Why it's different
 

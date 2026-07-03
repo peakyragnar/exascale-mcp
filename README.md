@@ -2,7 +2,7 @@
 
 **MCP endpoint:** `https://api.exascale.build/mcp` (streamable HTTP, no auth) · **Discovery:** [`/.well-known/agent.json`](https://api.exascale.build/.well-known/agent.json) · **Website:** [exascale.build](https://exascale.build) · **Docs:** [exascale.build/docs](https://exascale.build/docs)
 
-An **agent-first** data layer for the US machine-economy buildout. The **power** layer: operating / planned / retired **capacity** (EIA-860M), net **generation** (EIA-923), hourly **demand** (EIA-930 + EIA's national/region rollup), annual **retail sales** (EIA-861), **capacity factor**, the generator **interconnection queues of all seven US ISOs/RTOs**, and **ERCOT day-ahead prices**. The **AI-infrastructure** layer: private **data-center + fab construction** spending (Census C30), data-center-industry + semiconductor **employment** (BLS QCEW), and monthly **chip imports** (Census HS-8542). All over **MCP or REST**. Every value is returned **cited to its source**, and any number resolves to its **raw source cell with a matching SHA-256**, so an agent can *verify* what it reports instead of trusting it.
+An **agent-first** data layer for the US machine-economy buildout. The **power** layer: operating / planned / retired **capacity** (EIA-860M), net **generation** (EIA-923), hourly **demand** (EIA-930 + EIA's national/region rollup), annual **retail sales** (EIA-861), **capacity factor**, the generator **interconnection queues of all seven US ISOs/RTOs**, and **ERCOT day-ahead prices**. The **AI-infrastructure** layer: private **data-center + fab construction** spending (Census C30), data-center-industry + semiconductor **employment** (BLS QCEW), monthly **chip imports** (Census HS-8542), and monthly **chip-making-equipment imports** (Census HS-8486). All over **MCP or REST**. Every value is returned **cited to its source**, and any number resolves to its **raw source cell with a matching SHA-256**, so an agent can *verify* what it reports instead of trusting it.
 
 - 🔒 **Read-only**, no authentication, no personal data collected
 - ✅ **Verifiable** — `source` + `as_of` + a hash-checked evidence handle on every value
@@ -50,10 +50,11 @@ curl -X POST https://api.exascale.build/v1/power/capacity/query \
 | `ai_infrastructure.construction` | Private data-center + semiconductor-fab construction spending ($M/month) | Census C30 |
 | `ai_infrastructure.employment` | Data-center-industry + semiconductor employment, establishments, wages by state/county | BLS QCEW |
 | `ai_infrastructure.trade` | Monthly US chip-import value (HS-8542, all ICs) by country of origin | Census International Trade |
+| `ai_infrastructure.equipment_trade` | Monthly US chip-making-equipment import value (HS-8486, incl. flat-panel machinery) by country of origin | Census International Trade |
 
 Queue MW is **requested, not built** capacity — most of it historically withdraws — and the seven ISO queues are **never summed** into a national total (methodologies differ; each response says so).
 
-38 read-only tools: `list_capabilities_v1`, `describe_*` / `query_*` per data point, and `get_source_evidence_v1` (re-opens the raw file, re-hashes it, returns the literal source cell). Blocks share entity/geography anchors (`state`, `county_fips`, `eia_plant_id`, …) so an agent can join them itself — e.g. data-center jobs against grid capacity by county. Full reference at **[exascale.build/docs](https://exascale.build/docs)**.
+42 read-only tools: `list_capabilities_v1`, `describe_*` / `query_*` per data point, the generic pair `describe_capability_v1` / `query_capability_v1` (reach any capability by name — including ones shipped after your client cached its tool list), and `get_source_evidence_v1` (re-opens the raw file, re-hashes it, returns the literal source cell). Blocks share entity/geography anchors (`state`, `county_fips`, `eia_plant_id`, …) so an agent can join them itself — e.g. data-center jobs against grid capacity by county. Full reference at **[exascale.build/docs](https://exascale.build/docs)**.
 
 ## Why it's different
 
@@ -61,4 +62,4 @@ Built for agents that must be *right*: nothing reaches the agent surface until i
 
 ## Links
 
-Website [exascale.build](https://exascale.build) · Docs [/docs](https://exascale.build/docs) · Privacy [/privacy](https://exascale.build/privacy) · Terms [/terms](https://exascale.build/terms) · Official MCP Registry: `build.exascale/osint` · Contact: team@exascale.build
+Website [exascale.build](https://exascale.build) · Docs [/docs](https://exascale.build/docs) · Privacy [/privacy](https://exascale.build/privacy) · Terms [/terms](https://exascale.build/terms) · Official MCP Registry: `build.exascale/osint` · Contact: info@exascaledata.net

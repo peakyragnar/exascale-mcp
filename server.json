@@ -1,8 +1,8 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "build.exascale/osint",
-  "description": "Source-cited US machine-economy data: power, grid, AI-infra construction, jobs, chip imports.",
-  "version": "1.1.3",
+  "description": "Source-cited US machine-economy data: power, grid, AI-infra buildout, jobs, chips, fab output.",
+  "version": "1.1.4",
   "websiteUrl": "https://exascale.build",
   "icons": [
     {

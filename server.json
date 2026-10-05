@@ -1,8 +1,9 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "build.exascale/osint",
-  "description": "Source-cited US machine-economy data: power, AI infra, chips, robot trade + adoption, satellites.",
-  "version": "1.1.6",
+  "title": "exascale.build",
+  "description": "US ISO interconnection queues and cited energy data. 25 free queries, then $49/mo or $490/yr.",
+  "version": "1.1.7",
   "websiteUrl": "https://exascale.build",
   "icons": [
     {
